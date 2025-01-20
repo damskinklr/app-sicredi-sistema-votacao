@@ -1,4 +1,4 @@
-package br.com.sicredi.sistemavotacao.domain;
+package br.com.sicredi.sistemavotacao.core.domain;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

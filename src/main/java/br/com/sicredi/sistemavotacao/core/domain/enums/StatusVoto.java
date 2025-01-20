@@ -1,4 +1,4 @@
-package br.com.sicredi.sistemavotacao.domain.enums;
+package br.com.sicredi.sistemavotacao.core.domain.enums;
 
 public enum StatusVoto {
     ABLE_TO_VOTE,

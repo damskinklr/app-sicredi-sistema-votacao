@@ -1,6 +1,6 @@
-package br.com.sicredi.sistemavotacao.domain;
+package br.com.sicredi.sistemavotacao.core.domain;
 
-import br.com.sicredi.sistemavotacao.domain.enums.StatusVoto;
+import br.com.sicredi.sistemavotacao.core.domain.enums.StatusVoto;
 
 import java.util.UUID;
 
