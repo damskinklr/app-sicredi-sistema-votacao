@@ -3,20 +3,18 @@ package br.com.sicredi.sistemavotacao.core.domain;
 import lombok.Builder;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Builder
 public record Pauta(
         UUID id,
-        String title,
-        String description,
-        List<Voto> votos,
+        String titulo,
+        String descricao,
         boolean aberta,
         LocalDateTime abertura,
         LocalDateTime fechamento
 ) {
-    public static Pauta create(String title, String description) {
-        return new Pauta(UUID.randomUUID(), title, description, null, false, null, null);
+    public static Pauta create(String titulo, String descricao) {
+        return new Pauta(UUID.randomUUID(), titulo, descricao,  false, null, null);
     }
 }

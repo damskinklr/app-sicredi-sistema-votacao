@@ -4,7 +4,6 @@ import br.com.sicredi.sistemavotacao.core.domain.Associado;
 import br.com.sicredi.sistemavotacao.core.domain.AssociadoMock;
 import br.com.sicredi.sistemavotacao.infra.persistence.AssociadoRepositoryImpl;
 import br.com.sicredi.sistemavotacao.infra.persistence.mappers.AssociadoMapper;
-import br.com.sicredi.sistemavotacao.infra.persistence.mappers.AssociadoMapperImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

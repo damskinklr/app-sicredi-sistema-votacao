@@ -8,6 +8,5 @@ import java.util.UUID;
 public interface PautaRepository {
 
     Mono<Pauta> save(Pauta pauta);
-
     Mono<Pauta> findById(UUID id);
 }
