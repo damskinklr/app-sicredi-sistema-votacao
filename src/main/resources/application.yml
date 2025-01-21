@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: app-sicredi-sistema-votacao
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+server:
+  port: 8080
+
+aws:
+  region: ${AWS_REGION:sa-east-1}
+  credentials:
+    access-key: ${AWS_ACCESS_KEY_ID:local}
+    secret-key: ${AWS_SECRET_ACCESS_KEY:local}
+  dynamodb:
+    endpoint: ${DYNAMODB_ENDPOINT:http://localhost:8000}
+  sqs:
+    endpoint: ${SQS_ENDPOINT:http://localhost:9324}
+    queues:
+      sqs-sistema-votacao-resultados: sqs-sistema-votacao-resultados
+
+logging:
+  level:
+    root: INFO
+    br.com.sicredi.sistemavotacao: DEBUG
+    org.springframework.web: INFO
+    org.springframework.data: INFO
+    software.amazon.awssdk: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  health:
+    dynamodb:
+      enabled: true
+    sqs:
+      enabled: true
+
+app:
+  cpf-validation:
+    url: https://user-info.herokuapp.com/users
+  voting:
+    default-session-duration: PT1M  # 1 minuto em formato ISO-8601

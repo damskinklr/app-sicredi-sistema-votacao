@@ -4,44 +4,30 @@ import lombok.Setter;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbAttribute;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbPartitionKey;
-import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSecondaryPartitionKey;
-
-import java.time.LocalDateTime;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbSortKey;
 
 @Setter
 @DynamoDbBean
 public class VotoEntity {
-    private String id;
-    private String agendaId;
-    private String associateId;
-    private String option;
-    private LocalDateTime timestamp;
+    private String pautaId;
+    private String associadoId;
+    private String opcaoVoto;
 
     @DynamoDbPartitionKey
-    @DynamoDbAttribute("id")
-    public String getId() {
-        return id;
+    @DynamoDbAttribute("pautaId")
+    public String getPautaId() {
+        return pautaId;
     }
 
-    @DynamoDbSecondaryPartitionKey(indexNames = "agenda-index")
-    @DynamoDbAttribute("agendaId")
-    public String getAgendaId() {
-        return agendaId;
+    @DynamoDbSortKey
+    @DynamoDbAttribute("associadoId")
+    public String getAssociadoId() {
+        return associadoId;
     }
 
-    @DynamoDbSecondaryPartitionKey(indexNames = "associate-index")
-    @DynamoDbAttribute("associateId")
-    public String getAssociateId() {
-        return associateId;
+    @DynamoDbAttribute("voto")
+    public String getOpcaoVoto() {
+        return opcaoVoto;
     }
 
-    @DynamoDbAttribute("option")
-    public String getOption() {
-        return option;
-    }
-
-    @DynamoDbAttribute("timestamp")
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
 }

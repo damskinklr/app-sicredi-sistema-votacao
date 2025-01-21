@@ -2,18 +2,18 @@ package br.com.sicredi.sistemavotacao.core.domain;
 
 import br.com.sicredi.sistemavotacao.core.domain.enums.OpcaoVoto;
 
-import java.time.LocalDateTime;
+import java.util.UUID;
 
 public record Voto(
-        Associado associado,
-        OpcaoVoto option,
-        LocalDateTime timestamp
+        UUID pautaId,
+        String associadoId,
+        OpcaoVoto opcaoVoto
 ) {
-    public static Voto create(Associado associado, OpcaoVoto option) {
+    public static Voto create(UUID pautaId, String associadoId, OpcaoVoto opcaoVoto) {
         return new Voto(
-                associado,
-                option,
-                LocalDateTime.now()
+                pautaId,
+                associadoId,
+                opcaoVoto
         );
     }
 }

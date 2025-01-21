@@ -18,4 +18,8 @@ public record Pauta(
     public Pauta abrirSessao(boolean aberta, LocalDateTime abertura, LocalDateTime fechamento) {
         return new Pauta(id, titulo, descricao, aberta, abertura, fechamento);
     }
+
+    public Pauta fecharSessao() {
+        return new Pauta(id, titulo, descricao, false, abertura, fechamento);
+    }
 }
