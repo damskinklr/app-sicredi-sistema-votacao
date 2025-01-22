@@ -4,14 +4,19 @@ import br.com.sicredi.sistemavotacao.infra.config.DynamoDbTableCreator;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
 import software.amazon.awssdk.services.dynamodb.model.CreateTableRequest;
+import software.amazon.awssdk.services.sqs.SqsAsyncClient;
+import software.amazon.awssdk.services.sqs.model.CreateQueueRequest;
 
 @Service
 public class DynamoDbService {
 
     private final DynamoDbAsyncClient dynamoDbAsyncClient;
+    private final SqsAsyncClient sqsAsyncClient;
 
-    public DynamoDbService(DynamoDbAsyncClient dynamoDbAsyncClient) {
+    public DynamoDbService(DynamoDbAsyncClient dynamoDbAsyncClient,
+                           SqsAsyncClient sqsAsyncClient) {
         this.dynamoDbAsyncClient = dynamoDbAsyncClient;
+        this.sqsAsyncClient = sqsAsyncClient;
     }
 
     public boolean criarTabelas() {
@@ -45,7 +50,17 @@ public class DynamoDbService {
                     return null;
                 });
 
+        criarFila();
+
         return true;
 
+    }
+
+    private void criarFila() {
+        String queueName = "sqs-sistema-votacao-resultados.fifo";
+        sqsAsyncClient.createQueue(CreateQueueRequest.builder().queueName(queueName).build())
+                .thenAccept(response -> {
+                    System.out.println("Queue created: " + response.queueUrl());
+                });
     }
 }

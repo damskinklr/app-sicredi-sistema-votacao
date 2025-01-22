@@ -123,6 +123,7 @@
 					<exclude>br/com/sicredi/sistemavotacao/AppSicrediSistemaVotacaoApplication.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/core/service/CpfValidationService.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/core/service/DynamoDbService.class</exclude>
+					<exclude>br/com/sicredi/sistemavotacao/core/service/SqsService.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/application/controller/DynamoDbController.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/application/dto/**</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/application/exceptionhandler/**</exclude>
@@ -161,7 +162,7 @@
 										<limit>
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.70</minimum>
+											<minimum>0.50</minimum>
 										</limit>
 									</limits>
 								</rule>

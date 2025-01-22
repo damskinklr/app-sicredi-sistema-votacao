@@ -2,22 +2,22 @@ spring:
   application:
     name: app-sicredi-sistema-votacao
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:local}
 
 server:
   port: 8080
 
 aws:
-  region: ${AWS_REGION}
+  region: ${AWS_REGION:sa-east-1}
   credentials:
-    access-key: ${AWS_ACCESS_KEY_ID}
-    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    access-key: ${AWS_ACCESS_KEY_ID:local}
+    secret-key: ${AWS_SECRET_ACCESS_KEY:local}
   dynamodb:
-    endpoint: ${DYNAMODB_ENDPOINT}
+    endpoint: ${DYNAMODB_ENDPOINT:http://localhost:8000}
   sqs:
-    endpoint: ${SQS_ENDPOINT}
+    endpoint: ${SQS_ENDPOINT:http://localhost:9324}
     queues:
-      sqs-sistema-votacao-resultados: sqs-sistema-votacao-resultados
+      sqs-sistema-votacao-resultados: ${SQS_QUEUE_VOTACAO_RESULTADO:http://localhost:9324/queue/sqs-sistema-votacao-resultados.fifo}
 
 logging:
   level:
