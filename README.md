@@ -22,3 +22,5 @@ Com isso a solução que a API propõe em resolver é a gestão e controle das s
 * Spring Boot 3
 * Mensageria AWS SQS
 * Junit 5 e Project Reactor Test
+* Swagger-UI
+* MapStruct

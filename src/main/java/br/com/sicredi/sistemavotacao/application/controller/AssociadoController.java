@@ -32,7 +32,7 @@ public class AssociadoController {
     }
 
     @GetMapping("/{associadoId}")
-    @Operation(summary = "Retornar associado por id")
+    @Operation(summary = "Buscar associado por id")
     public Mono<Associado> retornarAssociadoPorId(@PathVariable UUID associadoId) {
         return associadoService.findById(associadoId);
     }

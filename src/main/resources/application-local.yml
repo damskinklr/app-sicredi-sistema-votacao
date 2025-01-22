@@ -1,21 +1,19 @@
 spring:
-  application:
-    name: app-sicredi-sistema-votacao
   profiles:
-    active: dev
+    active: local
 
 server:
   port: 8080
 
 aws:
-  region: ${AWS_REGION}
+  region: sa-east-1
   credentials:
-    access-key: ${AWS_ACCESS_KEY_ID}
-    secret-key: ${AWS_SECRET_ACCESS_KEY}
+    access-key: local
+    secret-key: local
   dynamodb:
-    endpoint: ${DYNAMODB_ENDPOINT}
+    endpoint: http://localhost:8000
   sqs:
-    endpoint: ${SQS_ENDPOINT}
+    endpoint: http://localhost:9324
     queues:
       sqs-sistema-votacao-resultados: sqs-sistema-votacao-resultados
 

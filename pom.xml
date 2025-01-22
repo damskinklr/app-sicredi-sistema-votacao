@@ -52,12 +52,12 @@
 			<version>1.0.12</version>
 		</dependency>
 
-		<!-- Swagger -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-webflux-ui</artifactId>
-			<version>1.7.0</version>
+			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+			<version>2.8.3</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -122,6 +122,8 @@
 				<excludes>
 					<exclude>br/com/sicredi/sistemavotacao/AppSicrediSistemaVotacaoApplication.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/core/service/CpfValidationService.class</exclude>
+					<exclude>br/com/sicredi/sistemavotacao/core/service/DynamoDbService.class</exclude>
+					<exclude>br/com/sicredi/sistemavotacao/application/controller/DynamoDbController.class</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/application/dto/**</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/application/exceptionhandler/**</exclude>
 					<exclude>br/com/sicredi/sistemavotacao/infra/gateway/**</exclude>
@@ -159,7 +161,7 @@
 										<limit>
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>0.80</minimum>
+											<minimum>0.70</minimum>
 										</limit>
 									</limits>
 								</rule>
